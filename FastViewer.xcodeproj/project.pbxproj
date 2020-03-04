@@ -44,6 +44,17 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		EB4F2277240FD587006D9A5D /* ImageWindow */ = {
+			isa = PBXGroup;
+			children = (
+				EB8A8EF924081EC2005735D2 /* ImageViewController.swift */,
+				EB14505B2409386E00626F79 /* ImageWindowController.swift */,
+				EB03085724093BE300AA8301 /* TwoImagesViewController.swift */,
+				EB03085924093BF400AA8301 /* TwoImagesWindowController.swift */,
+			);
+			name = ImageWindow;
+			sourceTree = "<group>";
+		};
 		EB8A8ED924081532005735D2 = {
 			isa = PBXGroup;
 			children = (
@@ -64,15 +75,12 @@
 			isa = PBXGroup;
 			children = (
 				EB8A8EE524081532005735D2 /* AppDelegate.swift */,
+				EB4F2277240FD587006D9A5D /* ImageWindow */,
 				EB8A8EE924081534005735D2 /* Assets.xcassets */,
 				EB8A8EF724081EAF005735D2 /* CenteringClipView.swift */,
 				EB8A8EEF24081534005735D2 /* FastViewer.entitlements */,
-				EB8A8EF924081EC2005735D2 /* ImageViewController.swift */,
-				EB14505B2409386E00626F79 /* ImageWindowController.swift */,
 				EB8A8EEE24081534005735D2 /* Info.plist */,
 				EB8A8EEB24081534005735D2 /* Main.storyboard */,
-				EB03085724093BE300AA8301 /* TwoImagesViewController.swift */,
-				EB03085924093BF400AA8301 /* TwoImagesWindowController.swift */,
 				EB8A8EE724081532005735D2 /* ViewController.swift */,
 			);
 			path = FastViewer;
