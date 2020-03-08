@@ -22,6 +22,9 @@ class TwoImagesViewController: NSViewController {
     @IBOutlet weak var viewWidthConstraint1: NSLayoutConstraint!
     @IBOutlet weak var image1: NSImageView!
     
+    var imageFilePath0 = "";
+    var imageFilePath1 = "";
+    
     // 缩放的速度
     var zoomSpeed: CGFloat = 0.05;
     
@@ -262,12 +265,8 @@ class TwoImagesViewController: NSViewController {
         
         // 移动到指定点
         let refRect: CGRect = refView.bounds;
-        let dstRect: CGRect = dstView.bounds;
-
-        var refHeightPos: CGFloat = refRectB.origin.y;
-        var dstHeightPos: CGFloat = dstRectB.origin.y;
         
-        dstView.setValue(refRect, forKey: "bounds")
+        dstView.setValue(refRect, forKey: "bounds");
     }
 
     @objc func scrollViewDidLiveScroll(notification: Notification){
@@ -300,7 +299,6 @@ class TwoImagesViewController: NSViewController {
             name: NSScrollView.didLiveScrollNotification,
             object: scrollView
         )
-        
     }
     
     
@@ -311,6 +309,8 @@ class TwoImagesViewController: NSViewController {
 
     }
     
+    func updateImage() {}
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do view setup here.
@@ -318,7 +318,6 @@ class TwoImagesViewController: NSViewController {
         zoomToActual(sender: nil);
         
         initScroller();
-       
     }
     
 }

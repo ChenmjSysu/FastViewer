@@ -22,6 +22,25 @@ class ViewController: NSViewController {
         }
     }
 
+    override func prepare(for segue: NSStoryboardSegue, sender: Any?)
+    {
+        if segue.destinationController is ImageWindowController
+        {
+            let vc = segue.destinationController as? ImageWindowController
+        
+            NSLog("Open One Image");
+        }
+        else if segue.destinationController is TwoImagesWindowController
+        {
+            let windowController = segue.destinationController as? TwoImagesWindowController
+            let viewController = windowController?.contentViewController as! TwoImagesViewController;
+            viewController.imageFilePath0 = "/Users/chenmingjin/workplace/code/WechatIMG7.jpeg"
+            viewController.imageFilePath1 = "/Users/chenmingjin/workplace/code/WechatIMG9.jpeg"
+            // 更新显示的图像
+            viewController.updateImage();
+            NSLog("Open TwoImage");
+        }
+    }
 
 }
 

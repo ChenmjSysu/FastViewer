@@ -40,6 +40,8 @@ class TwoImagesWindowController: NSWindowController {
         }
     }
     
+    
+    
     override func windowDidLoad() {
         super.windowDidLoad()
     

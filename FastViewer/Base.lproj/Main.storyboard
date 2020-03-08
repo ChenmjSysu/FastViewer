@@ -881,10 +881,22 @@
                                         <action selector="moveClick:" target="CQr-wa-FSi" id="G0E-V4-ZNj"/>
                                     </connections>
                                 </toolbarItem>
+                                <toolbarItem implicitItemIdentifier="3A295C2D-F4A0-414B-B7B3-BB83DDB68DA1" label="Cover" paletteLabel="Cover" image="NSInvalidDataFreestandingTemplate" sizingBehavior="auto" id="04A-tQ-z1M">
+                                    <nil key="toolTip"/>
+                                    <button key="view" verticalHuggingPriority="750" id="q61-nJ-M2y" customClass="ClickReleaseButton" customModule="FastViewer" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="14" width="56" height="32"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                        <buttonCell key="cell" type="push" bezelStyle="rounded" image="NSInvalidDataFreestandingTemplate" imagePosition="overlaps" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="WGX-rr-oMY">
+                                            <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                            <font key="font" metaFont="system"/>
+                                        </buttonCell>
+                                    </button>
+                                </toolbarItem>
                             </allowedToolbarItems>
                             <defaultToolbarItems>
                                 <toolbarItem reference="kc3-4T-0rr"/>
                                 <toolbarItem reference="9zh-Bb-rPt"/>
+                                <toolbarItem reference="04A-tQ-z1M"/>
                                 <toolbarItem reference="qOV-RH-FLl"/>
                                 <toolbarItem reference="Mhn-tT-Zpx"/>
                             </defaultToolbarItems>
@@ -894,6 +906,7 @@
                         </connections>
                     </window>
                     <connections>
+                        <outlet property="CoverButton" destination="q61-nJ-M2y" id="3GF-YL-RDv"/>
                         <segue destination="dca-Dt-i8N" kind="relationship" relationship="window.shadowedContentViewController" id="neT-pQ-dkZ"/>
                     </connections>
                 </windowController>
@@ -1242,6 +1255,7 @@
     <resources>
         <image name="1" width="4000" height="3000"/>
         <image name="2" width="4000" height="3000"/>
+        <image name="NSInvalidDataFreestandingTemplate" width="14" height="14"/>
         <image name="NSTouchBarAddTemplate" width="14" height="30"/>
         <image name="NSTouchBarGoBackTemplate" width="10" height="30"/>
         <image name="NSTouchBarGoDownTemplate" width="16" height="30"/>
