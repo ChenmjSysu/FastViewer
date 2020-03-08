@@ -27,6 +27,9 @@ class TwoImagesViewController: NSViewController {
     
     var MoveSpeed: CGFloat = 10;
     
+//    var WidthPos: CGFloat = 0;
+//    var HeightPos: CGFloat = 0;
+    
     // 定义zoomFactor变量，表示图片的缩放比例
     var zoomFactor0:CGFloat = 1.0 {
         // 当变量发生变化是，执行didSet
@@ -179,19 +182,47 @@ class TwoImagesViewController: NSViewController {
         scrollView.contentView.scroll(CGPoint(x: rect.origin.x+MoveSpeed, y: rect.origin.y));
     }
     
-    func doMoveUp(scrollView: inout NSScrollView) {
-        let rect = scrollView.contentView.documentVisibleRect;
+    func doMoveUp(centeringView: inout CenteringClipView) {
+        let parent = centeringView.superview as! NSScrollView;
+        let rectB = parent.contentView.bounds;
+        NSLog("\nBound Scroll To %0.2f %0.2f", rectB.origin.x, rectB.origin.y);
+        
         // 移动到指定点
-        NSLog("%f ", rect.origin.y)
-//        scrollView.contentView.scroll(CGPoint(x: rect.origin.x, y: rect.origin.y-MoveSpeed));
-        scrollView.contentView.scroll(CGPoint(x: rect.origin.x, y: 100));
+        let rect: CGRect = centeringView.bounds;
+
+        var HeightPos: CGFloat = rectB.origin.y;
+        HeightPos += MoveSpeed;
+        let bounds = NSMakeRect(
+            NSMinX(rect),
+            CGFloat(HeightPos),
+                      NSWidth(rect),
+                      NSHeight(rect)
+                     )
+        NSLog("Up slider %f", CGFloat(HeightPos))
+        
+        centeringView.setValue(bounds, forKey: "bounds")
     }
     
-    func doMoveDown(scrollView: inout NSScrollView) {
-        let rect = scrollView.contentView.documentVisibleRect;
+    func doMoveDown(centeringView: inout CenteringClipView) {
+        let parent = centeringView.superview as! NSScrollView;
+        let rectB = parent.contentView.bounds;
+        NSLog("\nMoveDown Bound Scroll To %0.2f %0.2f", rectB.origin.x, rectB.origin.y);
+        NSLog("\nSize %0.2f %0.2f", NSMaxX(centeringView.bounds), NSMaxY(centeringView.bounds));
+        
         // 移动到指定点
-        NSLog("%f ", rect.origin.y)
-//        scrollView.contentView.scroll(CGPoint(x: rect.origin.x, y: rect.origin.y+MoveSpeed));
+        let rect: CGRect = centeringView.bounds;
+
+        var HeightPos: CGFloat = rectB.origin.y;
+        HeightPos -= MoveSpeed;
+        let bounds = NSMakeRect(
+            NSMinX(rect),
+            CGFloat(HeightPos),
+                      NSWidth(rect),
+                      NSHeight(rect)
+                     )
+        NSLog("Up slider %f", CGFloat(HeightPos))
+        
+        centeringView.setValue(bounds, forKey: "bounds")
     }
     
     @IBAction func moveLeft(sender: NSToolbarItem?) {
@@ -211,20 +242,17 @@ class TwoImagesViewController: NSViewController {
     @IBAction func moveUp(sender: NSToolbarItem?) {
         NSLog("Move Up");
         
-        doMoveUp(scrollView: &scrollView0);
-        doMoveUp(scrollView: &scrollView1);
+        doMoveUp(centeringView: &clipView0);
+        doMoveUp(centeringView: &clipView1);
     }
     
     @IBAction func moveDown(sender: NSToolbarItem?) {
         NSLog("Move Down");
         
-        doMoveDown(scrollView: &scrollView0);
-        doMoveDown(scrollView: &scrollView1);
+        doMoveDown(centeringView: &clipView0);
+        doMoveDown(centeringView: &clipView1);
     }
     
-    
-    
-
 
     @objc func scrollViewDidLiveScroll(notification: Notification){
         #if DEBUG
@@ -249,7 +277,6 @@ class TwoImagesViewController: NSViewController {
     }
     
     func initScroller() {
-       
 //        self.scrollView0.hasVerticalScroller = false;
 //        self.scrollView0.hasHorizontalRuler = false;
 //
@@ -257,7 +284,7 @@ class TwoImagesViewController: NSViewController {
 //        self.scrollView1.hasHorizontalRuler = false;
         
         addScrollListener(scrollView: &self.scrollView0);
-//        addScrollListener(scrollView: &self.scrollView1);
+        addScrollListener(scrollView: &self.scrollView1);
 
     }
     
@@ -268,33 +295,7 @@ class TwoImagesViewController: NSViewController {
         zoomToActual(sender: nil);
         
         initScroller();
-        
-//        scrollView0.contentView.scroll(CGPoint(x: 200, y: 1000));
-//        scrollView0.documentView?.scroll(.zero);
-        if (scrollView0.hasVerticalScroller) {
-            scrollView0.verticalScroller?.floatValue = 0;
-            NSLog("hhh %d", 11);
-        }
-        let height = CGFloat((scrollView0.documentView?.frame.size.height)!);
-//        scrollView0.documentView.scroll(NSPoint(x: 0, y: 1000))
-//        scrollView0.documentView?.scroll(NSPoint(x: 1000, y: 0))
-//        scrollView0.contentView.scroll(to: NSPoint(x: 0, y: -100));
-        
-//        scrollView0.contentView.setBoundsOrigin(NSPoint(x: 50, y: -100));
-//        scrollView0.reflectScrolledClipView(scrollView0.contentView);
-        let size = scrollView0.documentView?.frame.size;
-        var visi: CGRect = scrollView0.documentVisibleRect;
-        let bound = scrollView0.documentView?.bounds;
-        let contentB = scrollView0.contentView.bounds;
-        let contentS = scrollView0.contentSize;
-        visi.origin = NSPoint(x: 0, y: 1000);
-        scrollView0.documentView?.scrollToVisible(visi)
-        let a = 1;
-        
-//        NSLog("%f %f ", size?.width, size?.height);
-//        NSLog("%f %f %f %f", bound?.origin.x, bound?.origin.y, bound?.width, bound?.height);
-//        [_scrollView.contentView scrollToPoint:NSMakePoint(0, ((NSView*)_scrollView.documentView).frame.size.height - _scrollView.contentSize.height)];
-
+       
     }
     
 }

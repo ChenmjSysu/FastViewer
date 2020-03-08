@@ -91,7 +91,7 @@ class ImageViewController: NSViewController {
         super.viewDidLoad()
         // Do view setup here.
         
-        self.zoomToFit(sender: nil);
+        self.zoomToActual(sender: nil);
     }
 
     

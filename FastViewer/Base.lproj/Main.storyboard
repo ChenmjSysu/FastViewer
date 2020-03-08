@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.Cocoa.Storyboard.XIB" version="3.0" toolsVersion="15702" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" initialViewController="B8D-0N-5wS">
+<document type="com.apple.InterfaceBuilder3.Cocoa.Storyboard.XIB" version="3.0" toolsVersion="15705" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" initialViewController="B8D-0N-5wS">
     <dependencies>
         <deployment identifier="macosx"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="15702"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="15705"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -842,7 +842,7 @@
                                 <toolbarItem implicitItemIdentifier="4498523E-7A62-4127-B8B4-A03BD43BE39B" label="Zoom" paletteLabel="Zoom" sizingBehavior="auto" id="kc3-4T-0rr">
                                     <nil key="toolTip"/>
                                     <segmentedControl key="view" verticalHuggingPriority="750" id="6Ue-bF-7Dr">
-                                        <rect key="frame" x="0.0" y="14" width="150" height="24"/>
+                                        <rect key="frame" x="0.0" y="14" width="149" height="24"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                         <segmentedCell key="cell" borderStyle="border" alignment="left" style="texturedSquare" trackingMode="momentary" id="4OP-FV-DN9">
                                             <font key="font" metaFont="system"/>
@@ -861,7 +861,7 @@
                                 <toolbarItem implicitItemIdentifier="610C9BF4-FFAA-4A4C-81BF-450570DD03DC" label="Move" paletteLabel="Move" sizingBehavior="auto" id="9zh-Bb-rPt">
                                     <nil key="toolTip"/>
                                     <segmentedControl key="view" verticalHuggingPriority="750" id="a5t-U2-98v">
-                                        <rect key="frame" x="0.0" y="14" width="137" height="24"/>
+                                        <rect key="frame" x="0.0" y="14" width="136" height="24"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                         <segmentedCell key="cell" borderStyle="border" alignment="left" style="texturedSquare" trackingMode="momentary" id="vxN-NT-4Vn">
                                             <font key="font" metaFont="system"/>
@@ -1030,13 +1030,13 @@
                         <autoresizingMask key="autoresizingMask"/>
                         <subviews>
                             <stackView distribution="fill" orientation="horizontal" alignment="centerY" spacing="16" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="zR8-iS-Leh">
-                                <rect key="frame" x="26" y="217" width="416" height="47"/>
+                                <rect key="frame" x="26" y="217" width="417" height="47"/>
                                 <subviews>
                                     <stackView distribution="fill" orientation="vertical" alignment="leading" spacing="10" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="mKH-cn-7oj">
-                                        <rect key="frame" x="0.0" y="2" width="35" height="42"/>
+                                        <rect key="frame" x="0.0" y="3" width="36" height="42"/>
                                         <subviews>
                                             <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="HkJ-kW-mf2">
-                                                <rect key="frame" x="-2" y="26" width="37" height="16"/>
+                                                <rect key="frame" x="-2" y="26" width="39" height="16"/>
                                                 <textFieldCell key="cell" lineBreakMode="clipping" title="路径1" id="375-WL-ydc">
                                                     <font key="font" usesAppearanceFont="YES"/>
                                                     <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
@@ -1044,7 +1044,7 @@
                                                 </textFieldCell>
                                             </textField>
                                             <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="hfJ-Tn-rFA">
-                                                <rect key="frame" x="-2" y="0.0" width="39" height="16"/>
+                                                <rect key="frame" x="-2" y="0.0" width="40" height="16"/>
                                                 <textFieldCell key="cell" lineBreakMode="clipping" title="路径2" id="dcD-Iu-dfi">
                                                     <font key="font" usesAppearanceFont="YES"/>
                                                     <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
@@ -1062,7 +1062,7 @@
                                         </customSpacing>
                                     </stackView>
                                     <stackView distribution="fill" orientation="vertical" alignment="leading" spacing="5" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="LCU-Vf-CZQ">
-                                        <rect key="frame" x="51" y="0.0" width="365" height="47"/>
+                                        <rect key="frame" x="52" y="0.0" width="365" height="47"/>
                                         <subviews>
                                             <textField verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="WAd-Zd-KTo">
                                                 <rect key="frame" x="0.0" y="26" width="365" height="21"/>
@@ -1103,8 +1103,8 @@
                                     <real value="3.4028234663852886e+38"/>
                                 </customSpacing>
                             </stackView>
-                            <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="Ch8-5f-KZm">
-                                <rect key="frame" x="20" y="71" width="152" height="32"/>
+                            <button verticalHuggingPriority="750" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Ch8-5f-KZm">
+                                <rect key="frame" x="20" y="169" width="152" height="32"/>
                                 <buttonCell key="cell" type="push" title="show single image" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="QMA-vq-Twg">
                                     <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                     <font key="font" metaFont="system"/>
@@ -1123,6 +1123,17 @@
                                     <segue destination="CQr-wa-FSi" kind="show" id="QGP-En-JlB"/>
                                 </connections>
                             </button>
+                            <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="E3t-tC-ulf">
+                                <rect key="frame" x="20" y="50" width="99" height="32"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                <buttonCell key="cell" type="push" title="show test" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="D1n-zV-TZa">
+                                    <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                    <font key="font" metaFont="system"/>
+                                </buttonCell>
+                                <connections>
+                                    <segue destination="Hcu-sO-ixl" kind="show" id="Spi-eS-ec0"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <constraints>
                             <constraint firstItem="g2w-h2-sb6" firstAttribute="top" secondItem="m2S-Jp-Qdl" secondAttribute="top" constant="110" id="13A-Ei-83F"/>
@@ -1139,6 +1150,93 @@
                 <customObject id="rPt-NT-nkU" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="75" y="756"/>
+        </scene>
+        <!--Window Controller-->
+        <scene sceneID="WbM-O2-aA5">
+            <objects>
+                <windowController id="Hcu-sO-ixl" sceneMemberID="viewController">
+                    <window key="window" title="TestView" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" releasedWhenClosed="NO" visibleAtLaunch="NO" frameAutosaveName="" animationBehavior="default" id="v8H-KJ-EmE">
+                        <windowStyleMask key="styleMask" titled="YES" closable="YES" miniaturizable="YES" resizable="YES"/>
+                        <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" topStrut="YES" bottomStrut="YES"/>
+                        <rect key="contentRect" x="196" y="240" width="480" height="270"/>
+                        <rect key="screenRect" x="0.0" y="0.0" width="1440" height="877"/>
+                        <connections>
+                            <outlet property="delegate" destination="Hcu-sO-ixl" id="P43-WG-gpx"/>
+                        </connections>
+                    </window>
+                    <connections>
+                        <segue destination="W6R-0x-fSe" kind="relationship" relationship="window.shadowedContentViewController" id="6xQ-Xe-qqx"/>
+                    </connections>
+                </windowController>
+                <customObject id="iqY-HC-xW0" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="75" y="1120"/>
+        </scene>
+        <!--Test View Controller-->
+        <scene sceneID="eX7-Av-IZa">
+            <objects>
+                <viewController id="W6R-0x-fSe" customClass="TestViewController" customModule="FastViewer" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" id="Md3-Ly-bLn">
+                        <rect key="frame" x="0.0" y="0.0" width="480" height="270"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <subviews>
+                            <slider verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Ajn-sA-GHx">
+                                <rect key="frame" x="26" y="18" width="404" height="19"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                <sliderCell key="cell" state="on" alignment="left" maxValue="100" doubleValue="50" tickMarkPosition="above" sliderType="linear" id="Huh-xm-0Se"/>
+                                <connections>
+                                    <action selector="slider_v:" target="W6R-0x-fSe" id="Gs9-65-bc1"/>
+                                </connections>
+                            </slider>
+                            <slider horizontalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Nwj-09-AAW">
+                                <rect key="frame" x="443" y="57" width="19" height="195"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                <sliderCell key="cell" alignment="left" maxValue="100" doubleValue="50" tickMarkPosition="right" sliderType="linear" id="sLs-uQ-x2z"/>
+                                <connections>
+                                    <action selector="slider_h:" target="W6R-0x-fSe" id="Neh-m0-f2p"/>
+                                </connections>
+                            </slider>
+                            <scrollView fixedFrame="YES" horizontalLineScroll="10" horizontalPageScroll="10" verticalLineScroll="10" verticalPageScroll="10" usesPredominantAxisScrolling="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Y2p-oo-n18">
+                                <rect key="frame" x="28" y="60" width="400" height="190"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                <clipView key="contentView" ambiguous="YES" id="ybb-Qj-o55">
+                                    <rect key="frame" x="1" y="1" width="398" height="188"/>
+                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                    <subviews>
+                                        <view ambiguous="YES" id="bhl-ZO-hgx">
+                                            <rect key="frame" x="0.0" y="0.0" width="800" height="600"/>
+                                            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                            <subviews>
+                                                <imageView horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="byD-IS-HVb">
+                                                    <rect key="frame" x="0.0" y="0.0" width="800" height="600"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                                    <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyDown" image="1" id="FIk-5K-pa1"/>
+                                                </imageView>
+                                            </subviews>
+                                        </view>
+                                    </subviews>
+                                </clipView>
+                                <scroller key="horizontalScroller" wantsLayer="YES" verticalHuggingPriority="750" horizontal="YES" id="Tzf-R5-jy2">
+                                    <rect key="frame" x="1" y="173" width="398" height="16"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </scroller>
+                                <scroller key="verticalScroller" wantsLayer="YES" verticalHuggingPriority="750" horizontal="NO" id="3Df-gz-Lnn">
+                                    <rect key="frame" x="383" y="1" width="16" height="188"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </scroller>
+                            </scrollView>
+                        </subviews>
+                    </view>
+                    <connections>
+                        <outlet property="clipView" destination="ybb-Qj-o55" id="pzn-O4-lVY"/>
+                        <outlet property="hslider" destination="Ajn-sA-GHx" id="T4A-7U-egi"/>
+                        <outlet property="testView" destination="bhl-ZO-hgx" id="OVU-91-vSA"/>
+                        <outlet property="vslider" destination="Nwj-09-AAW" id="MoI-xn-d8m"/>
+                    </connections>
+                </viewController>
+                <customObject id="EK0-h7-Hfs" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="75" y="1515"/>
         </scene>
     </scenes>
     <resources>
