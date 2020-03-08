@@ -253,36 +253,59 @@ class TwoImagesViewController: NSViewController {
         doMoveDown(centeringView: &clipView1);
     }
     
+    func updateViewFromReference(refView: CenteringClipView, dstView: CenteringClipView) {
+        let refParent = refView.superview as! NSScrollView;
+        let dstParent = dstView.superview as! NSScrollView;
+        let refRectB = refParent.contentView.bounds;
+        let dstRectB = dstParent.contentView.bounds;
+        NSLog("\nBound Scroll To %0.2f %0.2f", refRectB.origin.x, refRectB.origin.y);
+        
+        // 移动到指定点
+        let refRect: CGRect = refView.bounds;
+        let dstRect: CGRect = dstView.bounds;
+
+        var refHeightPos: CGFloat = refRectB.origin.y;
+        var dstHeightPos: CGFloat = dstRectB.origin.y;
+        
+        dstView.setValue(refRect, forKey: "bounds")
+    }
 
     @objc func scrollViewDidLiveScroll(notification: Notification){
+        let scrollView = notification.object as! NSScrollView;
+        if (scrollView == scrollView0) {
+            NSLog("Scroll 0");
+            updateViewFromReference(refView: clipView0, dstView: clipView1);
+        }
+        else if (scrollView == scrollView1) {
+            NSLog("Scroll 1");
+            updateViewFromReference(refView: clipView1, dstView: clipView0);
+        }
         #if DEBUG
-        let rect = scrollView0.contentView.documentVisibleRect;
-        NSLog("\nRect Scroll To %0.2f %0.2f", rect.origin.x, rect.origin.y);
-        
-        let rectB = scrollView0.contentView.bounds;
-        NSLog("\nBound Scroll To %0.2f %0.2f", rectB.origin.x, rectB.origin.y);
+//        let rect = scrollView0.contentView.documentVisibleRect;
+//        NSLog("\nRect Scroll To %0.2f %0.2f", rect.origin.x, rect.origin.y);
+//
+//        let rectB = scrollView0.contentView.bounds;
+//        NSLog("\nBound Scroll To %0.2f %0.2f", rectB.origin.x, rectB.origin.y);
         #endif
     }
+
     
     // 监听事件
     func addScrollListener(scrollView: inout NSScrollView) {
         let nc =  NotificationCenter.default
-        
+       
         nc.addObserver(
             self,
             selector: #selector(scrollViewDidLiveScroll),
             name: NSScrollView.didLiveScrollNotification,
             object: scrollView
         )
+        
     }
     
+    
+    
     func initScroller() {
-//        self.scrollView0.hasVerticalScroller = false;
-//        self.scrollView0.hasHorizontalRuler = false;
-//
-//        self.scrollView1.hasVerticalScroller = false;
-//        self.scrollView1.hasHorizontalRuler = false;
-        
         addScrollListener(scrollView: &self.scrollView0);
         addScrollListener(scrollView: &self.scrollView1);
 
