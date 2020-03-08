@@ -811,6 +811,21 @@
                         <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" topStrut="YES" bottomStrut="YES"/>
                         <rect key="contentRect" x="196" y="240" width="480" height="270"/>
                         <rect key="screenRect" x="0.0" y="0.0" width="1680" height="1027"/>
+                        <toolbar key="toolbar" implicitIdentifier="12865F94-9DE8-42AE-BEA2-FDD4A885C28E" autosavesConfiguration="NO" displayMode="iconAndLabel" sizeMode="regular" id="H4t-GC-k5b">
+                            <allowedToolbarItems>
+                                <toolbarItem implicitItemIdentifier="NSToolbarShowColorsItem" id="Pug-SZ-dzj"/>
+                                <toolbarItem implicitItemIdentifier="NSToolbarShowFontsItem" id="nxO-YO-cnP"/>
+                                <toolbarItem implicitItemIdentifier="NSToolbarPrintItem" id="ypj-Dp-3zd"/>
+                                <toolbarItem implicitItemIdentifier="NSToolbarSpaceItem" id="Bxf-yr-pFs"/>
+                                <toolbarItem implicitItemIdentifier="NSToolbarFlexibleSpaceItem" id="WGy-a6-8wf"/>
+                            </allowedToolbarItems>
+                            <defaultToolbarItems>
+                                <toolbarItem reference="Pug-SZ-dzj"/>
+                                <toolbarItem reference="nxO-YO-cnP"/>
+                                <toolbarItem reference="WGy-a6-8wf"/>
+                                <toolbarItem reference="ypj-Dp-3zd"/>
+                            </defaultToolbarItems>
+                        </toolbar>
                         <connections>
                             <outlet property="delegate" destination="B8D-0N-5wS" id="98r-iN-zZc"/>
                         </connections>
@@ -1183,7 +1198,7 @@
                 </windowController>
                 <customObject id="iqY-HC-xW0" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="75" y="1120"/>
+            <point key="canvasLocation" x="-161" y="1195"/>
         </scene>
         <!--Test View Controller-->
         <scene sceneID="eX7-Av-IZa">
@@ -1249,7 +1264,7 @@
                 </viewController>
                 <customObject id="EK0-h7-Hfs" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="75" y="1515"/>
+            <point key="canvasLocation" x="-161" y="1575"/>
         </scene>
     </scenes>
     <resources>

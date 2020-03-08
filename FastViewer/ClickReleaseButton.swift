@@ -11,8 +11,6 @@ import Cocoa
 class ClickReleaseButton: NSButton {
     
     override func mouseDown(with event: NSEvent) {
-        let windowController = self.superview?.superview
-//        let viewController = windowController.
         NSLog("Mouse Down");
     }
     

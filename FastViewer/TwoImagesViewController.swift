@@ -173,16 +173,46 @@ class TwoImagesViewController: NSViewController {
         zoomFactor1 = getZoomFit(index: 1);
     }
     
-    func doMoveLeft(scrollView: inout NSScrollView) {
-        let rect = scrollView.contentView.documentVisibleRect;
+    func doMoveLeft(centeringView: inout CenteringClipView) {
+        let parent = centeringView.superview as! NSScrollView;
+        let rectB = parent.contentView.bounds;
+        NSLog("\nBound Scroll To %0.2f %0.2f", rectB.origin.x, rectB.origin.y);
+        
         // 移动到指定点
-        scrollView.contentView.scroll(CGPoint(x: rect.origin.x-MoveSpeed, y: rect.origin.y));
+        let rect: CGRect = centeringView.bounds;
+
+        var widthPos: CGFloat = rectB.origin.x;
+        widthPos -= MoveSpeed;
+        let bounds = NSMakeRect(
+                        CGFloat(widthPos),
+                        NSMinY(rect),
+                        NSWidth(rect),
+                        NSHeight(rect)
+                     )
+        NSLog("Up slider %f", CGFloat(widthPos))
+        
+        centeringView.setValue(bounds, forKey: "bounds")
     }
     
-    func doMoveRight(scrollView: inout NSScrollView) {
-        let rect = scrollView.contentView.documentVisibleRect;
+    func doMoveRight(centeringView: inout CenteringClipView) {
+        let parent = centeringView.superview as! NSScrollView;
+        let rectB = parent.contentView.bounds;
+        NSLog("\nBound Scroll To %0.2f %0.2f", rectB.origin.x, rectB.origin.y);
+        
         // 移动到指定点
-        scrollView.contentView.scroll(CGPoint(x: rect.origin.x+MoveSpeed, y: rect.origin.y));
+        let rect: CGRect = centeringView.bounds;
+
+        var widthPos: CGFloat = rectB.origin.x;
+        widthPos += MoveSpeed;
+        let bounds = NSMakeRect(
+                        CGFloat(widthPos),
+                        NSMinY(rect),
+                        NSWidth(rect),
+                        NSHeight(rect)
+                     )
+        NSLog("Up slider %f", CGFloat(widthPos))
+        
+        centeringView.setValue(bounds, forKey: "bounds")
     }
     
     func doMoveUp(centeringView: inout CenteringClipView) {
@@ -231,15 +261,15 @@ class TwoImagesViewController: NSViewController {
     @IBAction func moveLeft(sender: NSToolbarItem?) {
         NSLog("Move Left");
         
-        doMoveLeft(scrollView: &scrollView0);
-        doMoveLeft(scrollView: &scrollView1);
+        doMoveLeft(centeringView: &clipView0);
+        doMoveLeft(centeringView: &clipView1);
     }
     
     @IBAction func moveRight(sender: NSToolbarItem?) {
         NSLog("Move Right");
         
-        doMoveRight(scrollView: &scrollView0);
-        doMoveRight(scrollView: &scrollView1);
+        doMoveRight(centeringView: &clipView0);
+        doMoveRight(centeringView: &clipView1);
     }
     
     @IBAction func moveUp(sender: NSToolbarItem?) {
@@ -300,8 +330,6 @@ class TwoImagesViewController: NSViewController {
             object: scrollView
         )
     }
-    
-    
     
     func initScroller() {
         addScrollListener(scrollView: &self.scrollView0);
