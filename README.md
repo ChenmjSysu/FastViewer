@@ -15,5 +15,5 @@ Xcode 11.3.1
 4. 设置Constraint
 - Ctrl-clik: View -> ClipView, Leading Sapce to Container && Top Space to Container
 - Ctrl-click: View -> View, Width && Height
-- Ctrl-click: View IamgeView -> View, Center Horizontoallu in Container && Center Vertically in Container && Equal Widths && Equal Heights
+- Ctrl-click: View ImageView -> View, Center Horizontoally in Container && Center Vertically in Container && Equal Widths && Equal Heights
 5. 添加Toolbar item，绑定事件

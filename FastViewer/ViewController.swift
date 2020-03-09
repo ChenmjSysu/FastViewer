@@ -10,10 +10,14 @@ import Cocoa
 
 class ViewController: NSViewController {
     
+    let imageDirectoryLoader = ImageDirectoryLoader()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+        let initialFolderUrl = NSURL.fileURL(withPath: "/Users/chenmingjin/Desktop", isDirectory: true)
+        imageDirectoryLoader.loadDataForFolderWithUrl(folderURL: initialFolderUrl as NSURL)
     }
 
     override var representedObject: Any? {
@@ -40,6 +44,10 @@ class ViewController: NSViewController {
             viewController.updateImage();
             NSLog("Open TwoImage");
         }
+    }
+    
+    func loadDataForNewFolderWithUrl(folderURL: NSURL) {
+        imageDirectoryLoader.loadDataForFolderWithUrl(folderURL: folderURL)
     }
 
 }

@@ -679,7 +679,7 @@
                 <customObject id="YLy-65-1bz" customClass="NSFontManager"/>
                 <customObject id="Ady-hI-5gd" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="75" y="0.0"/>
+            <point key="canvasLocation" x="76" y="-78"/>
         </scene>
         <!--Single Image Window Controller-->
         <scene sceneID="9SZ-WE-bcs">
@@ -746,7 +746,7 @@
                 <customObject id="lER-Kn-Xbz" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
                 <userDefaultsController representsSharedInstance="YES" id="j6a-T1-7Pd"/>
             </objects>
-            <point key="canvasLocation" x="-486" y="296"/>
+            <point key="canvasLocation" x="-509" y="817"/>
         </scene>
         <!--Single Image View Controller-->
         <scene sceneID="ZZw-aE-eES">
@@ -800,12 +800,12 @@
                 </viewController>
                 <customObject id="O7G-Oh-Pxo" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-486" y="740"/>
+            <point key="canvasLocation" x="-509" y="1357"/>
         </scene>
         <!--Main Window Controller-->
         <scene sceneID="R2V-B0-nI4">
             <objects>
-                <windowController id="B8D-0N-5wS" userLabel="Main Window Controller" sceneMemberID="viewController">
+                <windowController id="B8D-0N-5wS" userLabel="Main Window Controller" customClass="WindowController" customModule="FastViewer" customModuleProvider="target" sceneMemberID="viewController">
                     <window key="window" title="FastViewer" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" releasedWhenClosed="NO" visibleAtLaunch="NO" animationBehavior="default" id="IQv-IB-iLA">
                         <windowStyleMask key="styleMask" titled="YES" closable="YES" miniaturizable="YES" resizable="YES"/>
                         <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" topStrut="YES" bottomStrut="YES"/>
@@ -836,7 +836,7 @@
                 </windowController>
                 <customObject id="Oky-zY-oP4" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="75" y="250"/>
+            <point key="canvasLocation" x="94" y="268"/>
         </scene>
         <!--Two Image Window Controller-->
         <scene sceneID="4Vr-nt-21p">
@@ -927,7 +927,7 @@
                 </windowController>
                 <customObject id="t2E-On-zKN" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="635" y="243"/>
+            <point key="canvasLocation" x="1019" y="339"/>
         </scene>
         <!--Two Image View Controller-->
         <scene sceneID="TI4-1c-d9u">
@@ -1047,7 +1047,7 @@
                 </viewController>
                 <customObject id="ZSV-BT-dOD" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="728" y="782"/>
+            <point key="canvasLocation" x="1019" y="825"/>
         </scene>
         <!--Mian View Controller-->
         <scene sceneID="hIz-AP-VOD">
@@ -1118,7 +1118,7 @@
                                                                 <rect key="frame" x="194" y="18" width="204" height="20"/>
                                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                                                 <pathCell key="cell" controlSize="small" selectable="YES" editable="YES" alignment="left" id="3sz-tr-xJU">
-                                                                    <font key="font" metaFont="menu" size="11"/>
+                                                                    <font key="font" metaFont="label" size="11"/>
                                                                     <url key="url" string="file://localhost/Applications/"/>
                                                                 </pathCell>
                                                             </pathControl>
@@ -1126,7 +1126,7 @@
                                                                 <rect key="frame" x="26" y="5" width="96" height="19"/>
                                                                 <autoresizingMask key="autoresizingMask"/>
                                                                 <textFieldCell key="cell" controlSize="small" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" borderStyle="bezel" drawsBackground="YES" id="7wd-Uc-5yE">
-                                                                    <font key="font" metaFont="menu" size="11"/>
+                                                                    <font key="font" metaFont="label" size="11"/>
                                                                     <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
                                                                     <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                                                                 </textFieldCell>
@@ -1228,7 +1228,7 @@
                 </viewController>
                 <customObject id="rPt-NT-nkU" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="75" y="756"/>
+            <point key="canvasLocation" x="94" y="941"/>
         </scene>
         <!--Window Controller-->
         <scene sceneID="WbM-O2-aA5">
@@ -1249,7 +1249,7 @@
                 </windowController>
                 <customObject id="iqY-HC-xW0" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-161" y="1195"/>
+            <point key="canvasLocation" x="-164" y="1456"/>
         </scene>
         <!--Test View Controller-->
         <scene sceneID="eX7-Av-IZa">
@@ -1315,7 +1315,7 @@
                 </viewController>
                 <customObject id="EK0-h7-Hfs" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-161" y="1575"/>
+            <point key="canvasLocation" x="-150" y="1775"/>
         </scene>
     </scenes>
     <resources>
