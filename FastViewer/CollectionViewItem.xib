@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="15705" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" customObjectInstantitationMethod="direct">
+    <dependencies>
+        <deployment identifier="macosx"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="15705"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <customObject id="-2" userLabel="File's Owner" customClass="CollectionViewItem" customModule="FastViewer" customModuleProvider="target">
+            <connections>
+                <outlet property="imageView" destination="PSm-pS-p1z" id="D6K-73-LzC"/>
+                <outlet property="textField" destination="gmt-cl-Y7c" id="NDt-ET-AGZ"/>
+                <outlet property="view" destination="Hz6-mo-xeY" id="0bl-1N-x8E"/>
+            </connections>
+        </customObject>
+        <customObject id="-1" userLabel="First Responder" customClass="FirstResponder"/>
+        <customObject id="-3" userLabel="Application" customClass="NSObject"/>
+        <customView id="Hz6-mo-xeY">
+            <rect key="frame" x="0.0" y="0.0" width="480" height="272"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+            <subviews>
+                <imageView horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="PSm-pS-p1z">
+                    <rect key="frame" x="20" y="252" width="440" height="0.0"/>
+                    <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyDown" id="acN-l2-OAf"/>
+                </imageView>
+                <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="gmt-cl-Y7c">
+                    <rect key="frame" x="18" y="0.0" width="444" height="16"/>
+                    <textFieldCell key="cell" lineBreakMode="truncatingTail" alignment="center" title="Label" id="lJs-8F-feK">
+                        <font key="font" metaFont="system"/>
+                        <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                        <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                    </textFieldCell>
+                </textField>
+            </subviews>
+            <constraints>
+                <constraint firstAttribute="trailing" secondItem="PSm-pS-p1z" secondAttribute="trailing" constant="20" symbolic="YES" id="4qq-SE-xtJ"/>
+                <constraint firstItem="gmt-cl-Y7c" firstAttribute="leading" secondItem="Hz6-mo-xeY" secondAttribute="leading" constant="20" symbolic="YES" id="7Hh-sf-0fu"/>
+                <constraint firstItem="PSm-pS-p1z" firstAttribute="leading" secondItem="Hz6-mo-xeY" secondAttribute="leading" constant="20" symbolic="YES" id="DCu-Od-pmU"/>
+                <constraint firstAttribute="bottom" secondItem="gmt-cl-Y7c" secondAttribute="bottom" id="Oyd-Yv-C1F"/>
+                <constraint firstItem="PSm-pS-p1z" firstAttribute="top" secondItem="Hz6-mo-xeY" secondAttribute="top" constant="20" symbolic="YES" id="S9o-TW-Rlb"/>
+                <constraint firstAttribute="trailing" secondItem="gmt-cl-Y7c" secondAttribute="trailing" constant="20" symbolic="YES" id="wor-ew-xtI"/>
+            </constraints>
+            <point key="canvasLocation" x="139" y="154"/>
+        </customView>
+        <collectionViewItem id="w6E-zS-USJ" customClass="CollectionViewItem" customModule="FastViewer" customModuleProvider="target"/>
+    </objects>
+</document>

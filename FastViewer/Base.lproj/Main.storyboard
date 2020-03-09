@@ -746,7 +746,7 @@
                 <customObject id="lER-Kn-Xbz" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
                 <userDefaultsController representsSharedInstance="YES" id="j6a-T1-7Pd"/>
             </objects>
-            <point key="canvasLocation" x="-509" y="817"/>
+            <point key="canvasLocation" x="-687" y="1006"/>
         </scene>
         <!--Single Image View Controller-->
         <scene sceneID="ZZw-aE-eES">
@@ -800,7 +800,7 @@
                 </viewController>
                 <customObject id="O7G-Oh-Pxo" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-509" y="1357"/>
+            <point key="canvasLocation" x="-702" y="1534"/>
         </scene>
         <!--Main Window Controller-->
         <scene sceneID="R2V-B0-nI4">
@@ -1140,9 +1140,45 @@
                                                             <splitView misplaced="YES" arrangesAllSubviews="NO" dividerStyle="thin" translatesAutoresizingMaskIntoConstraints="NO" id="uV5-0a-HwQ">
                                                                 <rect key="frame" x="0.0" y="0.0" width="508" height="357"/>
                                                                 <subviews>
-                                                                    <customView fixedFrame="YES" id="ENN-tK-Y0h">
+                                                                    <customView misplaced="YES" id="ENN-tK-Y0h">
                                                                         <rect key="frame" x="0.0" y="0.0" width="508" height="328"/>
                                                                         <autoresizingMask key="autoresizingMask"/>
+                                                                        <subviews>
+                                                                            <scrollView wantsLayer="YES" misplaced="YES" autohidesScrollers="YES" horizontalLineScroll="10" horizontalPageScroll="10" verticalLineScroll="10" verticalPageScroll="10" usesPredominantAxisScrolling="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KcD-uw-ZqE">
+                                                                                <rect key="frame" x="0.0" y="0.0" width="508" height="328"/>
+                                                                                <clipView key="contentView" id="90V-yE-x47">
+                                                                                    <rect key="frame" x="1" y="1" width="506" height="326"/>
+                                                                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                                                                    <subviews>
+                                                                                        <collectionView id="sZw-Io-e5A">
+                                                                                            <rect key="frame" x="0.0" y="0.0" width="506" height="158"/>
+                                                                                            <autoresizingMask key="autoresizingMask" widthSizable="YES"/>
+                                                                                            <collectionViewFlowLayout key="collectionViewLayout" minimumInteritemSpacing="10" minimumLineSpacing="10" id="ugc-zf-hE0">
+                                                                                                <size key="itemSize" width="50" height="50"/>
+                                                                                            </collectionViewFlowLayout>
+                                                                                            <color key="primaryBackgroundColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                                                                            <connections>
+                                                                                                <outlet property="dataSource" destination="XfG-lQ-9wD" id="jeh-me-m1c"/>
+                                                                                            </connections>
+                                                                                        </collectionView>
+                                                                                    </subviews>
+                                                                                </clipView>
+                                                                                <scroller key="horizontalScroller" hidden="YES" wantsLayer="YES" verticalHuggingPriority="750" horizontal="YES" id="DUA-k2-X2Z">
+                                                                                    <rect key="frame" x="1" y="311" width="506" height="16"/>
+                                                                                    <autoresizingMask key="autoresizingMask"/>
+                                                                                </scroller>
+                                                                                <scroller key="verticalScroller" hidden="YES" wantsLayer="YES" verticalHuggingPriority="750" horizontal="NO" id="af6-Va-V5w">
+                                                                                    <rect key="frame" x="419" y="1" width="16" height="157"/>
+                                                                                    <autoresizingMask key="autoresizingMask"/>
+                                                                                </scroller>
+                                                                            </scrollView>
+                                                                        </subviews>
+                                                                        <constraints>
+                                                                            <constraint firstItem="KcD-uw-ZqE" firstAttribute="top" secondItem="ENN-tK-Y0h" secondAttribute="top" id="1nQ-9C-8t9"/>
+                                                                            <constraint firstItem="KcD-uw-ZqE" firstAttribute="width" secondItem="ENN-tK-Y0h" secondAttribute="width" id="LIv-55-vUP"/>
+                                                                            <constraint firstItem="KcD-uw-ZqE" firstAttribute="leading" secondItem="ENN-tK-Y0h" secondAttribute="leading" id="R3k-a9-5Il"/>
+                                                                            <constraint firstItem="KcD-uw-ZqE" firstAttribute="height" secondItem="ENN-tK-Y0h" secondAttribute="height" id="yay-np-iwq"/>
+                                                                        </constraints>
                                                                     </customView>
                                                                     <customView fixedFrame="YES" id="Yv9-JW-9lZ">
                                                                         <rect key="frame" x="0.0" y="329" width="508" height="28"/>
@@ -1225,6 +1261,9 @@
                             <constraint firstItem="LXR-86-XgU" firstAttribute="height" secondItem="m2S-Jp-Qdl" secondAttribute="height" id="eUe-eI-CuO"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="collectionView" destination="sZw-Io-e5A" id="1fz-b8-enh"/>
+                    </connections>
                 </viewController>
                 <customObject id="rPt-NT-nkU" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -1249,7 +1288,7 @@
                 </windowController>
                 <customObject id="iqY-HC-xW0" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-164" y="1456"/>
+            <point key="canvasLocation" x="-155" y="1714"/>
         </scene>
         <!--Test View Controller-->
         <scene sceneID="eX7-Av-IZa">
@@ -1315,7 +1354,7 @@
                 </viewController>
                 <customObject id="EK0-h7-Hfs" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-150" y="1775"/>
+            <point key="canvasLocation" x="-155" y="2216"/>
         </scene>
     </scenes>
     <resources>
