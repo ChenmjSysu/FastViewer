@@ -1150,7 +1150,7 @@
                                                                                     <rect key="frame" x="1" y="1" width="506" height="326"/>
                                                                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                                                     <subviews>
-                                                                                        <collectionView id="sZw-Io-e5A">
+                                                                                        <collectionView selectable="YES" id="sZw-Io-e5A">
                                                                                             <rect key="frame" x="0.0" y="0.0" width="506" height="158"/>
                                                                                             <autoresizingMask key="autoresizingMask" widthSizable="YES"/>
                                                                                             <collectionViewFlowLayout key="collectionViewLayout" minimumInteritemSpacing="10" minimumLineSpacing="10" id="ugc-zf-hE0">
@@ -1159,6 +1159,7 @@
                                                                                             <color key="primaryBackgroundColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
                                                                                             <connections>
                                                                                                 <outlet property="dataSource" destination="XfG-lQ-9wD" id="jeh-me-m1c"/>
+                                                                                                <outlet property="delegate" destination="XfG-lQ-9wD" id="asA-ET-gK4"/>
                                                                                             </connections>
                                                                                         </collectionView>
                                                                                     </subviews>

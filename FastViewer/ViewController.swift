@@ -80,6 +80,12 @@ extension ViewController : NSCollectionViewDataSource {
         // 5
         let imageFile = imageDirectoryLoader.imageFileForIndexPath(indexPath: indexPath as NSIndexPath)
         collectionViewItem.imageFile = imageFile
+        
+        if let selectedIndexPath = collectionView.selectionIndexPaths.first, selectedIndexPath == indexPath as IndexPath {
+            collectionViewItem.setHighlight(selected: true)
+        } else {
+            collectionViewItem.setHighlight(selected: false)
+        }
         return item
     }
     
@@ -104,9 +110,47 @@ extension ViewController : NSCollectionViewDataSource {
     // 5
     let imageFile = imageDirectoryLoader.imageFileForIndexPath(indexPath: indexPath)
     collectionViewItem.imageFile = imageFile
+    
+    if let selectedIndexPath = collectionView.selectionIndexPaths.first, selectedIndexPath == indexPath as IndexPath {
+        collectionViewItem.setHighlight(selected: true)
+    } else {
+        collectionViewItem.setHighlight(selected: false)
+    }
     return item
   }
   
 }
 
+extension ViewController : NSCollectionViewDelegate {
+
+    // 1 when click item, the function is called
+    func collectionView(_ collectionView: NSCollectionView, didSelectItemsAt indexPaths: Set<IndexPath>) {
+        // 2 get the selected item
+        print("Select ", indexPaths.first?.section, indexPaths.first?.item);
+        guard let indexPath = indexPaths.first else {
+            return
+        }
+        // 3 retrive an item by its index and highlight it
+        guard let item = collectionView.item(at: indexPath as IndexPath) else {
+            return
+        }
+        (item as! CollectionViewItem).setHighlight(selected: true)
+    }
+
+    // 4 same as previous method, but it's called when is deselected
+    func collectionView(_ collectionView: NSCollectionView, didDeselectItemsAt indexPaths: Set<IndexPath>) {
+        print("DeSelect ", indexPaths.first?.section, indexPaths.first?.item);
+        guard let indexPath = indexPaths.first else {
+            return
+        }
+            guard let item = collectionView.item(at: indexPath as IndexPath) else {
+            return
+        }
+        (item as! CollectionViewItem).setHighlight(selected: false)
+    }
+        
+//    func collectionView(collectionView: NSCollectionView, didDeselectItemsAtIndexPaths indexPaths: Set<NSIndexPath>) {
+//
+//    }
+}
 
