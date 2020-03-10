@@ -10,6 +10,10 @@ import Cocoa
 
 class WindowController: NSWindowController {
 
+    @IBAction func OpenFolder(_ sender: Any) {
+        OpenAnotherFolder();
+    }
+    
     override func windowDidLoad() {
         super.windowDidLoad()
     

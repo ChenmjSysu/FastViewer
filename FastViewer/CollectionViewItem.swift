@@ -30,16 +30,16 @@ class CollectionViewItem: NSCollectionViewItem {
         // Do view setup here.
         
         view.wantsLayer = true;
-        view.layer?.backgroundColor = NSColor.lightGray.cgColor;
+        view.layer?.backgroundColor = NSColor.white.cgColor;
         
         // 1
         view.layer?.borderWidth = 0.0
         // 2
-        view.layer?.borderColor = NSColor.white.cgColor;
+        view.layer?.borderColor = NSColor.blue.cgColor;
     }
     
     func setHighlight(selected: Bool) {
-        view.layer?.borderWidth = selected ? 5.0 : 0.0
+        view.layer?.borderWidth = selected ? 1.0 : 0.0
     }
     
 }

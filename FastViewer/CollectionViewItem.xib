@@ -19,26 +19,40 @@
             <rect key="frame" x="0.0" y="0.0" width="480" height="272"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
             <subviews>
-                <imageView horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="PSm-pS-p1z">
-                    <rect key="frame" x="20" y="252" width="440" height="0.0"/>
-                    <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyDown" id="acN-l2-OAf"/>
-                </imageView>
-                <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="gmt-cl-Y7c">
-                    <rect key="frame" x="18" y="0.0" width="444" height="16"/>
-                    <textFieldCell key="cell" lineBreakMode="truncatingTail" alignment="center" title="Label" id="lJs-8F-feK">
-                        <font key="font" metaFont="system"/>
-                        <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
-                        <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
-                    </textFieldCell>
-                </textField>
+                <stackView distribution="fill" orientation="vertical" alignment="leading" spacing="1" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="cKw-fB-dRs">
+                    <rect key="frame" x="1" y="1" width="478" height="270"/>
+                    <subviews>
+                        <imageView horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="PSm-pS-p1z">
+                            <rect key="frame" x="0.0" y="17" width="478" height="253"/>
+                            <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyDown" id="acN-l2-OAf"/>
+                        </imageView>
+                        <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="gmt-cl-Y7c">
+                            <rect key="frame" x="-2" y="0.0" width="482" height="16"/>
+                            <textFieldCell key="cell" lineBreakMode="truncatingTail" alignment="center" title="Label" id="lJs-8F-feK">
+                                <font key="font" metaFont="system"/>
+                                <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                            </textFieldCell>
+                        </textField>
+                    </subviews>
+                    <constraints>
+                        <constraint firstItem="gmt-cl-Y7c" firstAttribute="centerX" secondItem="cKw-fB-dRs" secondAttribute="centerX" id="9GS-ut-RLf"/>
+                    </constraints>
+                    <visibilityPriorities>
+                        <integer value="1000"/>
+                        <integer value="1000"/>
+                    </visibilityPriorities>
+                    <customSpacing>
+                        <real value="3.4028234663852886e+38"/>
+                        <real value="3.4028234663852886e+38"/>
+                    </customSpacing>
+                </stackView>
             </subviews>
             <constraints>
-                <constraint firstAttribute="trailing" secondItem="PSm-pS-p1z" secondAttribute="trailing" constant="20" symbolic="YES" id="4qq-SE-xtJ"/>
-                <constraint firstItem="gmt-cl-Y7c" firstAttribute="leading" secondItem="Hz6-mo-xeY" secondAttribute="leading" constant="20" symbolic="YES" id="7Hh-sf-0fu"/>
-                <constraint firstItem="PSm-pS-p1z" firstAttribute="leading" secondItem="Hz6-mo-xeY" secondAttribute="leading" constant="20" symbolic="YES" id="DCu-Od-pmU"/>
-                <constraint firstAttribute="bottom" secondItem="gmt-cl-Y7c" secondAttribute="bottom" id="Oyd-Yv-C1F"/>
-                <constraint firstItem="PSm-pS-p1z" firstAttribute="top" secondItem="Hz6-mo-xeY" secondAttribute="top" constant="20" symbolic="YES" id="S9o-TW-Rlb"/>
-                <constraint firstAttribute="trailing" secondItem="gmt-cl-Y7c" secondAttribute="trailing" constant="20" symbolic="YES" id="wor-ew-xtI"/>
+                <constraint firstItem="cKw-fB-dRs" firstAttribute="top" secondItem="Hz6-mo-xeY" secondAttribute="top" constant="1" id="jZM-bs-ilm"/>
+                <constraint firstItem="cKw-fB-dRs" firstAttribute="leading" secondItem="Hz6-mo-xeY" secondAttribute="leading" constant="1" id="kQs-c5-KKl"/>
+                <constraint firstItem="cKw-fB-dRs" firstAttribute="centerY" secondItem="Hz6-mo-xeY" secondAttribute="centerY" id="qVs-O0-FHr"/>
+                <constraint firstItem="cKw-fB-dRs" firstAttribute="centerX" secondItem="Hz6-mo-xeY" secondAttribute="centerX" id="sXh-Xr-l3i"/>
             </constraints>
             <point key="canvasLocation" x="139" y="154"/>
         </customView>

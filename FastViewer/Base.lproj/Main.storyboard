@@ -818,12 +818,24 @@
                                 <toolbarItem implicitItemIdentifier="NSToolbarPrintItem" id="ypj-Dp-3zd"/>
                                 <toolbarItem implicitItemIdentifier="NSToolbarSpaceItem" id="Bxf-yr-pFs"/>
                                 <toolbarItem implicitItemIdentifier="NSToolbarFlexibleSpaceItem" id="WGy-a6-8wf"/>
+                                <toolbarItem implicitItemIdentifier="9FA9E54D-CFFA-4DE7-88FD-6ADF3820EE4B" label="Open" paletteLabel="Open" image="NSFolder" sizingBehavior="auto" id="v1O-DZ-16f">
+                                    <nil key="toolTip"/>
+                                    <button key="view" verticalHuggingPriority="750" id="Pfy-4H-qKZ">
+                                        <rect key="frame" x="0.0" y="14" width="82" height="32"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                        <buttonCell key="cell" type="push" bezelStyle="rounded" image="NSFolder" imagePosition="only" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="keG-2Q-eTc">
+                                            <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                            <font key="font" metaFont="system"/>
+                                        </buttonCell>
+                                    </button>
+                                    <connections>
+                                        <action selector="OpenFolder:" target="B8D-0N-5wS" id="wiL-Ds-YsX"/>
+                                    </connections>
+                                </toolbarItem>
                             </allowedToolbarItems>
                             <defaultToolbarItems>
-                                <toolbarItem reference="Pug-SZ-dzj"/>
-                                <toolbarItem reference="nxO-YO-cnP"/>
+                                <toolbarItem reference="v1O-DZ-16f"/>
                                 <toolbarItem reference="WGy-a6-8wf"/>
-                                <toolbarItem reference="ypj-Dp-3zd"/>
                             </defaultToolbarItems>
                         </toolbar>
                         <connections>
@@ -1067,9 +1079,23 @@
                                             <splitView arrangesAllSubviews="NO" dividerStyle="thin" translatesAutoresizingMaskIntoConstraints="NO" id="WsC-TQ-EW8">
                                                 <rect key="frame" x="0.0" y="0.0" width="91" height="400"/>
                                                 <subviews>
-                                                    <customView fixedFrame="YES" id="hG8-IO-Srz">
+                                                    <customView id="hG8-IO-Srz">
                                                         <rect key="frame" x="0.0" y="0.0" width="91" height="283"/>
                                                         <autoresizingMask key="autoresizingMask"/>
+                                                        <subviews>
+                                                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="eir-P1-7wW">
+                                                                <rect key="frame" x="36" y="134" width="137" height="16"/>
+                                                                <textFieldCell key="cell" lineBreakMode="clipping" title="这里应该放文件夹结构" id="SlP-aA-ykH">
+                                                                    <font key="font" usesAppearanceFont="YES"/>
+                                                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                                                    <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                                                </textFieldCell>
+                                                            </textField>
+                                                        </subviews>
+                                                        <constraints>
+                                                            <constraint firstItem="eir-P1-7wW" firstAttribute="centerY" secondItem="hG8-IO-Srz" secondAttribute="centerY" id="IfQ-0X-0sK"/>
+                                                            <constraint firstItem="eir-P1-7wW" firstAttribute="centerX" secondItem="hG8-IO-Srz" secondAttribute="centerX" id="Wth-vC-MLH"/>
+                                                        </constraints>
                                                     </customView>
                                                     <customView id="yph-Ng-aFr">
                                                         <rect key="frame" x="0.0" y="284" width="91" height="116"/>
@@ -1118,7 +1144,7 @@
                                                                 <rect key="frame" x="194" y="18" width="204" height="20"/>
                                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                                                 <pathCell key="cell" controlSize="small" selectable="YES" editable="YES" alignment="left" id="3sz-tr-xJU">
-                                                                    <font key="font" metaFont="label" size="11"/>
+                                                                    <font key="font" metaFont="menu" size="11"/>
                                                                     <url key="url" string="file://localhost/Applications/"/>
                                                                 </pathCell>
                                                             </pathControl>
@@ -1126,7 +1152,7 @@
                                                                 <rect key="frame" x="26" y="5" width="96" height="19"/>
                                                                 <autoresizingMask key="autoresizingMask"/>
                                                                 <textFieldCell key="cell" controlSize="small" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" borderStyle="bezel" drawsBackground="YES" id="7wd-Uc-5yE">
-                                                                    <font key="font" metaFont="label" size="11"/>
+                                                                    <font key="font" metaFont="menu" size="11"/>
                                                                     <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
                                                                     <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                                                                 </textFieldCell>
@@ -1361,6 +1387,7 @@
     <resources>
         <image name="1" width="4000" height="3000"/>
         <image name="2" width="4000" height="3000"/>
+        <image name="NSFolder" width="32" height="32"/>
         <image name="NSInvalidDataFreestandingTemplate" width="14" height="14"/>
         <image name="NSTouchBarAddTemplate" width="14" height="30"/>
         <image name="NSTouchBarGoBackTemplate" width="10" height="30"/>

@@ -16,8 +16,9 @@ class ViewController: NSViewController {
     private func configureCollectionView() {
         // 1 create layout
         let flowLayout = NSCollectionViewFlowLayout();
-        flowLayout.itemSize = NSSize(width: 160.0, height: 140.0);
-        flowLayout.sectionInset = NSEdgeInsets(top: 10.0, left: 20.0, bottom: 10.0, right: 20.0);
+        // 设置itemz样式
+        flowLayout.itemSize = NSSize(width: 80.0, height: 70.0);
+        flowLayout.sectionInset = NSEdgeInsets(top: 10.0, left: 10.0, bottom: 10.0, right: 10.0);
         flowLayout.minimumInteritemSpacing = 20.0;
         flowLayout.minimumLineSpacing = 20.0;
         collectionView.collectionViewLayout = flowLayout;
@@ -62,6 +63,7 @@ class ViewController: NSViewController {
         }
     }
     
+    // 打开新的文件夹
     func loadDataForNewFolderWithUrl(folderURL: NSURL) {
         // reload files
         imageDirectoryLoader.loadDataForFolderWithUrl(folderURL: folderURL);
@@ -118,7 +120,6 @@ extension ViewController : NSCollectionViewDataSource {
     }
     return item
   }
-  
 }
 
 extension ViewController : NSCollectionViewDelegate {
@@ -148,9 +149,5 @@ extension ViewController : NSCollectionViewDelegate {
         }
         (item as! CollectionViewItem).setHighlight(selected: false)
     }
-        
-//    func collectionView(collectionView: NSCollectionView, didDeselectItemsAtIndexPaths indexPaths: Set<NSIndexPath>) {
-//
-//    }
 }
 
