@@ -12,7 +12,12 @@ class ViewController: NSViewController {
     
     @IBOutlet weak var collectionView: NSCollectionView!
     let imageDirectoryLoader = ImageDirectoryLoader()
+    var lastClickTime:  CFAbsoluteTime = CFAbsoluteTimeGetCurrent();
     
+    override func mouseDown(with event: NSEvent) {
+        print("click view")
+    }
+
     private func configureCollectionView() {
         // 1 create layout
         let flowLayout = NSCollectionViewFlowLayout();
@@ -126,6 +131,15 @@ extension ViewController : NSCollectionViewDelegate {
 
     // 1 when click item, the function is called
     func collectionView(_ collectionView: NSCollectionView, didSelectItemsAt indexPaths: Set<IndexPath>) {
+        
+        var currentClickTime: CFAbsoluteTime = CFAbsoluteTimeGetCurrent();
+        let diffTime = currentClickTime - lastClickTime;
+        print(diffTime);
+        if (diffTime < 1) {
+            print("Double Click");
+        }
+        
+        lastClickTime = CFAbsoluteTimeGetCurrent();
         // 2 get the selected item
         print("Select ", indexPaths.first?.section, indexPaths.first?.item);
         guard let indexPath = indexPaths.first else {
@@ -149,5 +163,6 @@ extension ViewController : NSCollectionViewDelegate {
         }
         (item as! CollectionViewItem).setHighlight(selected: false)
     }
+    
 }
 

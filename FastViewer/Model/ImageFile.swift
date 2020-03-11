@@ -13,6 +13,10 @@ class ImageFile {
     private(set) var thumbnail: NSImage?
     private(set) var fileName: String
     
+    @IBAction func doubleClickedItem(_ sender: NSOutlineView) {
+        print("double click");
+    }
+    
     func isImageFile(url: NSURL) -> Bool {
         var type: String = getFileType(url: url);
         return UTTypeConformsTo(type as CFString, "public.image" as CFString)
