@@ -26,7 +26,7 @@ class ImageDirectoryLoader: NSObject {
     private var sectionsAttributesArray = [SectionAttributes]()
     
     func setupDataForUrls(urls: [NSURL]?) {
-      
+        
         if let urls = urls {                    // When new folder
             createImageFilesForUrls(urls: urls)
         }
@@ -107,13 +107,19 @@ class ImageDirectoryLoader: NSObject {
             do {
                 let resourceValues = try url.resourceValues(forKeys: resourceValueKeys)
                 guard let isRegularFileResourceValue = resourceValues[URLResourceKey.isRegularFileKey] as? NSNumber else { continue }
-                guard isRegularFileResourceValue.boolValue else { continue }
+//                guard isRegularFileResourceValue.boolValue else { continue }
+                
                 guard let fileType = resourceValues[URLResourceKey.typeIdentifierKey] as? String else { continue }
-                guard UTTypeConformsTo(fileType as CFString, "public.image" as CFString) else { continue }
+//                print(fileType as CFString, url, "\n");
+//                guard UTTypeConformsTo(fileType as CFString, "public.image" as CFString) else { continue }
+                // 只保留图片文件和文件夹
+                if (!UTTypeConformsTo(fileType as CFString, "public.image" as CFString) && !UTTypeConformsTo(fileType as CFString, "public.folder" as CFString) ) {
+                    continue;
+                }
                 urls.append(url)
             }
             catch {
-            print("Unexpected error occured: \(error).")
+                print("Unexpected error occured: \(error).")
             }
         }
         return urls

@@ -13,17 +13,53 @@ class ImageFile {
     private(set) var thumbnail: NSImage?
     private(set) var fileName: String
     
+    func isImageFile(url: NSURL) -> Bool {
+        var type: String = getFileType(url: url);
+        return UTTypeConformsTo(type as CFString, "public.image" as CFString)
+    }
+    
+    func isFolder(url: NSURL) -> Bool {
+        var type: String = getFileType(url: url);
+        return UTTypeConformsTo(type as CFString, "public.folder" as CFString)
+    }
+
+    func getFileType(url: NSURL) -> String {
+        var fileType: String = "Unknown";
+        let resourceValueKeys = [URLResourceKey.isRegularFileKey, URLResourceKey.typeIdentifierKey]
+        do {
+            let resourceValues = try url.resourceValues(forKeys: resourceValueKeys)
+            guard let isRegularFileResourceValue = resourceValues[URLResourceKey.isRegularFileKey] as? NSNumber else { return fileType }
+//                guard isRegularFileResourceValue.boolValue else { continue }
+            
+            guard let fileType_ = resourceValues[URLResourceKey.typeIdentifierKey] as? String else { return fileType }
+            
+            fileType = fileType_;
+      
+        }
+        catch {
+            print("Unexpected error occured: \(error).")
+        }
+        return fileType;
+    }
+    
     init (url: NSURL) {
         if let name = url.lastPathComponent {
             fileName = name
         } else {
             fileName = ""
         }
-        let imageSource = CGImageSourceCreateWithURL(url.absoluteURL as! CFURL, nil)
-        if let imageSource = imageSource {
-            guard CGImageSourceGetType(imageSource) != nil else { return }
-            thumbnail = getThumbnailImage(imageSource: imageSource)
+        
+        if (isImageFile(url: url)) {
+            let imageSource = CGImageSourceCreateWithURL(url.absoluteURL as! CFURL, nil)
+            if let imageSource = imageSource {
+                guard CGImageSourceGetType(imageSource) != nil else { return }
+                thumbnail = getThumbnailImage(imageSource: imageSource)
+            }
         }
+        else if (isFolder(url: url)) {
+            thumbnail = NSImage(named: NSImage.Name("folder_icon"));
+        }
+        
     }
     
     private func getThumbnailImage(imageSource: CGImageSource) -> NSImage? {

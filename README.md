@@ -17,3 +17,11 @@ Xcode 11.3.1
 - Ctrl-click: View -> View, Width && Height
 - Ctrl-click: View ImageView -> View, Center Horizontoally in Container && Center Vertically in Container && Equal Widths && Equal Heights
 5. 添加Toolbar item，绑定事件
+
+## TODO LIST
+- ~~搭建整体框架~~ 2020.03.10
+- 在collectionview显示文件夹，双击进入文件夹
+- collectionview多选并显示图片
+- 支持YUV
+- 支持RAW图
+- 支持视频
