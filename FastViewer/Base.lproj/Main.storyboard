@@ -1140,22 +1140,17 @@
                                                         <rect key="frame" x="0.0" y="0.0" width="508" height="42"/>
                                                         <autoresizingMask key="autoresizingMask"/>
                                                         <subviews>
-                                                            <pathControl verticalHuggingPriority="750" fixedFrame="YES" allowsExpansionToolTips="YES" translatesAutoresizingMaskIntoConstraints="NO" id="eBK-qP-KrR">
-                                                                <rect key="frame" x="194" y="18" width="204" height="20"/>
-                                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                                                <pathCell key="cell" controlSize="small" selectable="YES" editable="YES" alignment="left" id="3sz-tr-xJU">
-                                                                    <font key="font" metaFont="message" size="11"/>
-                                                                    <url key="url" string="file://localhost/Applications/"/>
-                                                                </pathCell>
-                                                            </pathControl>
                                                             <textField verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="SBI-2G-3ue">
-                                                                <rect key="frame" x="26" y="5" width="96" height="19"/>
+                                                                <rect key="frame" x="6" y="11" width="208" height="19"/>
                                                                 <autoresizingMask key="autoresizingMask"/>
-                                                                <textFieldCell key="cell" controlSize="small" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" borderStyle="bezel" drawsBackground="YES" id="7wd-Uc-5yE">
-                                                                    <font key="font" metaFont="message" size="11"/>
+                                                                <textFieldCell key="cell" controlSize="small" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" borderStyle="bezel" placeholderString="可在此处输入文件夹路径..." drawsBackground="YES" id="7wd-Uc-5yE">
+                                                                    <font key="font" metaFont="label" size="11"/>
                                                                     <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
                                                                     <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                                                                 </textFieldCell>
+                                                                <connections>
+                                                                    <action selector="EnterPathTextField:" target="XfG-lQ-9wD" id="Uam-Fc-WLx"/>
+                                                                </connections>
                                                             </textField>
                                                         </subviews>
                                                     </customView>
@@ -1177,7 +1172,7 @@
                                                                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                                                     <subviews>
                                                                                         <collectionView selectable="YES" allowsMultipleSelection="YES" id="sZw-Io-e5A">
-                                                                                            <rect key="frame" x="0.0" y="0.0" width="506" height="158"/>
+                                                                                            <rect key="frame" x="0.0" y="0.0" width="506" height="326"/>
                                                                                             <autoresizingMask key="autoresizingMask" widthSizable="YES"/>
                                                                                             <collectionViewFlowLayout key="collectionViewLayout" minimumInteritemSpacing="10" minimumLineSpacing="10" id="ugc-zf-hE0">
                                                                                                 <size key="itemSize" width="50" height="50"/>
@@ -1191,11 +1186,11 @@
                                                                                     </subviews>
                                                                                 </clipView>
                                                                                 <scroller key="horizontalScroller" hidden="YES" wantsLayer="YES" verticalHuggingPriority="750" horizontal="YES" id="DUA-k2-X2Z">
-                                                                                    <rect key="frame" x="1" y="311" width="506" height="16"/>
+                                                                                    <rect key="frame" x="-100" y="-100" width="506" height="16"/>
                                                                                     <autoresizingMask key="autoresizingMask"/>
                                                                                 </scroller>
                                                                                 <scroller key="verticalScroller" hidden="YES" wantsLayer="YES" verticalHuggingPriority="750" horizontal="NO" id="af6-Va-V5w">
-                                                                                    <rect key="frame" x="419" y="1" width="16" height="157"/>
+                                                                                    <rect key="frame" x="491" y="1" width="16" height="326"/>
                                                                                     <autoresizingMask key="autoresizingMask"/>
                                                                                 </scroller>
                                                                             </scrollView>
@@ -1290,6 +1285,7 @@
                     </view>
                     <connections>
                         <outlet property="collectionView" destination="sZw-Io-e5A" id="1fz-b8-enh"/>
+                        <outlet property="pathTextField" destination="SBI-2G-3ue" id="siK-Gd-lcC"/>
                     </connections>
                 </viewController>
                 <customObject id="rPt-NT-nkU" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>

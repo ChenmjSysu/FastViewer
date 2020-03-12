@@ -47,6 +47,12 @@ class ImageFile {
         return fileType;
     }
     
+    init() {
+        fileName = "";
+        fullPath = "";
+        thumbnail = nil;
+    }
+    
     init (url: NSURL) {
         if let name = url.lastPathComponent {
             fileName = name

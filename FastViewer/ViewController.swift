@@ -9,13 +9,27 @@
 import Cocoa
 
 class ViewController: NSViewController {
+
     var imageFilePath0 = "";
     var imageFilePath1 = "";
     
+    @IBOutlet weak var pathTextField: NSTextField!
     @IBOutlet weak var collectionView: NSCollectionView!
     let imageDirectoryLoader = ImageDirectoryLoader()
     var lastClickTime:  CFAbsoluteTime = CFAbsoluteTimeGetCurrent();
     
+    @IBAction func EnterPathTextField(_ sender: Any) {
+        let path = pathTextField.stringValue;
+        let helper: ImageFile = ImageFile();
+        if (helper.isFolder(url: NSURL.init(string: "file://" + path)!)) {
+            loadDataForNewFolderWithUrl(folderURL: NSURL.init(string: "file://" + path)!);
+//            let initialFolderUrl = NSURL.fileURL(withPath: path, isDirectory: true);
+//            imageDirectoryLoader.loadDataForFolderWithUrl(folderURL: initialFolderUrl as NSURL);
+        }
+        else {
+            print(path, " is not a valid folder");
+        }
+    }
     override func mouseDown(with event: NSEvent) {
         print("click view")
     }
@@ -76,6 +90,9 @@ class ViewController: NSViewController {
         imageDirectoryLoader.loadDataForFolderWithUrl(folderURL: folderURL);
         // redisplay files
         collectionView.reloadData();
+        // set path editfile;
+        let urlString: String = folderURL.relativePath!
+        pathTextField.stringValue = urlString;
     }
 }
 

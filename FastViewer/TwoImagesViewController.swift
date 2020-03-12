@@ -338,7 +338,6 @@ class TwoImagesViewController: NSViewController {
     }
     
     func updateImage() {
-        let image = NSImage(named: NSImage.Name("folder_icon"));
         let url0 = URL.init(string: imageFilePath0)!;
         let url1 = URL.init(string: imageFilePath1)!;
         image0.image = NSImage.init(byReferencing: url0);
