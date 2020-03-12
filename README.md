@@ -18,6 +18,13 @@ Xcode 11.3.1
 - Ctrl-click: View ImageView -> View, Center Horizontoally in Container && Center Vertically in Container && Equal Widths && Equal Heights
 5. 添加Toolbar item，绑定事件
 
+## 界面
+主界面
+![image](https://github.com/ChenmjSysu/FastViewer/blob/master/data/main_window.png)
+图像显示
+![image](https://github.com/ChenmjSysu/FastViewer/blob/master/data/two_image_window.png)
+
+
 ## TODO LIST
 - ~~搭建整体框架~~ 2020.03.10
 - 在collectionview显示文件夹，双击进入文件夹
