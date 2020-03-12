@@ -20,10 +20,10 @@ Xcode 11.3.1
 
 ## 界面
 主界面<br/>
-![image](https://github.com/ChenmjSysu/FastViewer/blob/master/data/main_window.png)
+![image](https://github.com/ChenmjSysu/FastViewer/blob/master/data/main_window.png)<br/>
 <br/>
 图像显示<br/>
-![image](https://github.com/ChenmjSysu/FastViewer/blob/master/data/two_image_window.png)
+![image](https://github.com/ChenmjSysu/FastViewer/blob/master/data/two_image_window.png)<br/>
 
 
 ## TODO LIST
