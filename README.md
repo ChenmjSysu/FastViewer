@@ -19,9 +19,10 @@ Xcode 11.3.1
 5. 添加Toolbar item，绑定事件
 
 ## 界面
-主界面
+主界面<br/>
 ![image](https://github.com/ChenmjSysu/FastViewer/blob/master/data/main_window.png)
-图像显示
+<br/>
+图像显示<br/>
 ![image](https://github.com/ChenmjSysu/FastViewer/blob/master/data/two_image_window.png)
 
 
