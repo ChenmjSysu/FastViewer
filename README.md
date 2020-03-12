@@ -21,7 +21,7 @@ Xcode 11.3.1
 ## TODO LIST
 - ~~搭建整体框架~~ 2020.03.10
 - 在collectionview显示文件夹，双击进入文件夹
-- collectionview多选并显示图片
+- ~~collectionview多选并显示图片~~ 2020.03.13
 - 支持YUV
 - 支持RAW图
 - 支持视频

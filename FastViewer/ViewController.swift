@@ -9,6 +9,8 @@
 import Cocoa
 
 class ViewController: NSViewController {
+    var imageFilePath0 = "";
+    var imageFilePath1 = "";
     
     @IBOutlet weak var collectionView: NSCollectionView!
     let imageDirectoryLoader = ImageDirectoryLoader()
@@ -60,8 +62,8 @@ class ViewController: NSViewController {
         {
             let windowController = segue.destinationController as? TwoImagesWindowController
             let viewController = windowController?.contentViewController as! TwoImagesViewController;
-            viewController.imageFilePath0 = "/Users/chenmingjin/workplace/code/WechatIMG7.jpeg"
-            viewController.imageFilePath1 = "/Users/chenmingjin/workplace/code/WechatIMG9.jpeg"
+            viewController.imageFilePath0 = imageFilePath0;
+            viewController.imageFilePath1 = imageFilePath1;
             // 更新显示的图像
             viewController.updateImage();
             NSLog("Open TwoImage");
@@ -128,9 +130,28 @@ extension ViewController : NSCollectionViewDataSource {
 }
 
 extension ViewController : NSCollectionViewDelegate {
-
+    
     // 1 when click item, the function is called
     func collectionView(_ collectionView: NSCollectionView, didSelectItemsAt indexPaths: Set<IndexPath>) {
+        
+        let index:IndexSet = collectionView.selectionIndexes;
+      
+        var selectIndex:Int = 0;
+        for i in index {
+            guard let oneItem = collectionView.item(at: i) else {
+                return
+            }
+            if (selectIndex == 0) {
+                imageFilePath0 = (oneItem as! CollectionViewItem).imageFile!.fullPath;
+            }
+            else if (selectIndex == 1) {
+                imageFilePath1 = (oneItem as! CollectionViewItem).imageFile!.fullPath;
+            }
+            selectIndex += 1;
+        }
+        
+        print(imageFilePath0)
+        print(imageFilePath1)
         
         var currentClickTime: CFAbsoluteTime = CFAbsoluteTimeGetCurrent();
         let diffTime = currentClickTime - lastClickTime;
@@ -141,7 +162,6 @@ extension ViewController : NSCollectionViewDelegate {
         
         lastClickTime = CFAbsoluteTimeGetCurrent();
         // 2 get the selected item
-        print("Select ", indexPaths.first?.section, indexPaths.first?.item);
         guard let indexPath = indexPaths.first else {
             return
         }
@@ -150,19 +170,54 @@ extension ViewController : NSCollectionViewDelegate {
             return
         }
         (item as! CollectionViewItem).setHighlight(selected: true)
+//        print((item as! CollectionViewItem).imageFile?.fullPath);
     }
 
     // 4 same as previous method, but it's called when is deselected
     func collectionView(_ collectionView: NSCollectionView, didDeselectItemsAt indexPaths: Set<IndexPath>) {
-        print("DeSelect ", indexPaths.first?.section, indexPaths.first?.item);
-        guard let indexPath = indexPaths.first else {
-            return
+        
+        let selectedIndex:IndexSet = collectionView.selectionIndexes;
+        
+        let index = collectionView.indexPathsForVisibleItems();
+        for i in index {
+            
+            if (selectedIndex.contains(i.item)) {
+                continue;
+            }
+            print("DeSelect ", i.item);
+            guard let item = collectionView.item(at: i) else {
+                return
+            }
+            (item as! CollectionViewItem).setHighlight(selected: false)
         }
-            guard let item = collectionView.item(at: indexPath as IndexPath) else {
-            return
-        }
-        (item as! CollectionViewItem).setHighlight(selected: false)
+//        guard let indexPath = indexPaths.first else {
+//            return
+//        }
+            
     }
     
+//    func collectionView(_ collectionView: NSCollectionView, didDoubleClickItemsAt indexPaths: Set<IndexPath>) {
+//        print("clclc");
+//    }
+    
 }
+
+//protocol NSCollectionViewClickHandler {
+//    func collectionView(_ collectionView: NSCollectionView, didDoubleClickOnItem item: Int)
+//    func collectionView(_ collectionView: NSCollectionView, didRightClickOnItem item: Int)
+//}
+//
+//extension ViewController: NSCollectionViewClickHandler {
+//   func collectionView(_ collectionView: NSCollectionView, didDoubleClickOnItem item: Int) {
+//      print("didDoubleClickOnItem")
+//   }
+//
+//   func collectionView(_ collectionView: NSCollectionView, didRightClickOnItem item: Int) {
+//      print("didDoubleClickOnItem")
+//   }
+
+   // If you need other methods to properly implement your delegate methods,
+   // you can group them in this extension as well: they logically belong together.
+   // …
+//}
 

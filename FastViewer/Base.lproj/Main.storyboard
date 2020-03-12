@@ -1144,7 +1144,7 @@
                                                                 <rect key="frame" x="194" y="18" width="204" height="20"/>
                                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                                                 <pathCell key="cell" controlSize="small" selectable="YES" editable="YES" alignment="left" id="3sz-tr-xJU">
-                                                                    <font key="font" metaFont="menu" size="11"/>
+                                                                    <font key="font" metaFont="message" size="11"/>
                                                                     <url key="url" string="file://localhost/Applications/"/>
                                                                 </pathCell>
                                                             </pathControl>
@@ -1152,7 +1152,7 @@
                                                                 <rect key="frame" x="26" y="5" width="96" height="19"/>
                                                                 <autoresizingMask key="autoresizingMask"/>
                                                                 <textFieldCell key="cell" controlSize="small" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" borderStyle="bezel" drawsBackground="YES" id="7wd-Uc-5yE">
-                                                                    <font key="font" metaFont="menu" size="11"/>
+                                                                    <font key="font" metaFont="message" size="11"/>
                                                                     <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
                                                                     <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                                                                 </textFieldCell>
@@ -1176,7 +1176,7 @@
                                                                                     <rect key="frame" x="1" y="1" width="506" height="326"/>
                                                                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                                                     <subviews>
-                                                                                        <collectionView selectable="YES" id="sZw-Io-e5A">
+                                                                                        <collectionView selectable="YES" allowsMultipleSelection="YES" id="sZw-Io-e5A">
                                                                                             <rect key="frame" x="0.0" y="0.0" width="506" height="158"/>
                                                                                             <autoresizingMask key="autoresizingMask" widthSizable="YES"/>
                                                                                             <collectionViewFlowLayout key="collectionViewLayout" minimumInteritemSpacing="10" minimumLineSpacing="10" id="ugc-zf-hE0">

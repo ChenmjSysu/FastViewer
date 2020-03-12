@@ -12,6 +12,7 @@ class ImageFile {
 
     private(set) var thumbnail: NSImage?
     private(set) var fileName: String
+    private(set) var fullPath: String
     
     @IBAction func doubleClickedItem(_ sender: NSOutlineView) {
         print("double click");
@@ -52,7 +53,7 @@ class ImageFile {
         } else {
             fileName = ""
         }
-        
+        fullPath = url.absoluteString!;
         if (isImageFile(url: url)) {
             let imageSource = CGImageSourceCreateWithURL(url.absoluteURL as! CFURL, nil)
             if let imageSource = imageSource {
