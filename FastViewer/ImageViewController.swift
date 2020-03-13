@@ -10,11 +10,18 @@ import Cocoa
 
 class ImageViewController: NSViewController {
 
+    var imageFilePath0 = "";
+    
     @IBOutlet weak var viewHeightConstraint0: NSLayoutConstraint!
     @IBOutlet weak var viewWidthConstraint0: NSLayoutConstraint!
     @IBOutlet weak var image0: NSImageView!
     @IBOutlet weak var clipView0: CenteringClipView!
     
+    
+    func updateImage() {
+        let url0 = URL.init(string: imageFilePath0)!;
+        image0.image = NSImage.init(byReferencing: url0);
+    }
     
     // 定义zoomFactor变量，表示图片的缩放比例
     var zoomFactor:CGFloat = 1.0 {

@@ -37,7 +37,7 @@ class ViewController: NSViewController {
     private func configureCollectionView() {
         // 1 create layout
         let flowLayout = NSCollectionViewFlowLayout();
-        // 设置itemz样式
+        // 设置iterm样式
         flowLayout.itemSize = NSSize(width: 80.0, height: 70.0);
         flowLayout.sectionInset = NSEdgeInsets(top: 10.0, left: 10.0, bottom: 10.0, right: 10.0);
         flowLayout.minimumInteritemSpacing = 20.0;
@@ -68,8 +68,13 @@ class ViewController: NSViewController {
     {
         if segue.destinationController is ImageWindowController
         {
+            let windowController = segue.destinationController as? ImageWindowController
             let vc = segue.destinationController as? ImageWindowController
+            
+            let viewController = windowController?.contentViewController as! ImageViewController;
+            viewController.imageFilePath0 = imageFilePath0;
         
+            viewController.updateImage();
             NSLog("Open One Image");
         }
         else if segue.destinationController is TwoImagesWindowController
