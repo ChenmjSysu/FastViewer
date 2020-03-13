@@ -348,7 +348,7 @@ class TwoImagesViewController: NSViewController {
         super.viewDidLoad()
         // Do view setup here.
         
-        zoomToActual(sender: nil);
+        zoomToFit(sender: nil);
         
         initScroller();
     }

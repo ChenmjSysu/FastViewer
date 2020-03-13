@@ -73,8 +73,9 @@ class ViewController: NSViewController {
             
             let viewController = windowController?.contentViewController as! ImageViewController;
             viewController.imageFilePath0 = imageFilePath0;
-        
+            // 更新显示的图像
             viewController.updateImage();
+            viewController.zoomToFit(sender: nil);
             NSLog("Open One Image");
         }
         else if segue.destinationController is TwoImagesWindowController
@@ -85,6 +86,7 @@ class ViewController: NSViewController {
             viewController.imageFilePath1 = imageFilePath1;
             // 更新显示的图像
             viewController.updateImage();
+            viewController.zoomToFit(sender: nil);
             NSLog("Open TwoImage");
         }
     }
