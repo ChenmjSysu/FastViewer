@@ -15,7 +15,9 @@ func getFileDescription(filepath: String) -> String {
     desc = filename! + "\n";
     
     let tmp = ImageFile();
-    let url = NSURL.init(string: "file://" + filepath)!
+    let formatString = "file://" + filepath;
+    let encodeString = formatString.addingPercentEncoding(withAllowedCharacters: NSCharacterSet.urlQueryAllowed);
+    let url = NSURL.init(string: encodeString!)!
     if (tmp.isImageFile(url: url)) {
         let image = NSImage.init(contentsOf: url as URL);
         let width = Int((image?.size.width)!)
