@@ -14,6 +14,11 @@ class WindowController: NSWindowController {
         OpenAnotherFolder();
     }
     
+    @IBAction func Display(_ sender: Any) {
+        let viewController = self.contentViewController as? ViewController
+        viewController?.openImageWindow();
+    }
+    
     override func windowDidLoad() {
         super.windowDidLoad()
     

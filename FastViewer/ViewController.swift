@@ -13,6 +13,9 @@ class ViewController: NSViewController {
     var imageFilePath0 = "";
     var imageFilePath1 = "";
     
+    var twoImageWindowController: TwoImagesWindowController?
+    var imageWindowController: ImageWindowController?
+    
     @IBOutlet weak var pathTextField: NSTextField!
     @IBOutlet weak var collectionView: NSCollectionView!
     let imageDirectoryLoader = ImageDirectoryLoader()
@@ -49,6 +52,37 @@ class ViewController: NSViewController {
         collectionView.layer?.backgroundColor = NSColor.black.cgColor;
     }
     
+    func openImageWindow() {
+        let index:IndexSet = collectionView.selectionIndexes;
+        print("select count ", index.count);
+        
+        if (index.count == 0) {
+            print("No selection")
+        }
+        else if (index.count == 1) {
+            let storyboard = NSStoryboard.init(name: "Main", bundle: nil);
+            imageWindowController = storyboard.instantiateController(withIdentifier: "SingleImageWindow") as! ImageWindowController;
+            let vc = imageWindowController?.contentViewController as! ImageViewController;
+            vc.imageFilePath0 = imageFilePath0;
+            vc.updateImage();
+            vc.zoomToFit(sender: nil);
+            imageWindowController?.showWindow(self);
+        }
+        else if (index.count == 2) {
+            let storyboard = NSStoryboard.init(name: "Main", bundle: nil);
+            twoImageWindowController = storyboard.instantiateController(withIdentifier: "TwoImageWindow") as! TwoImagesWindowController;
+            let vc = twoImageWindowController?.contentViewController as! TwoImagesViewController;
+            vc.imageFilePath0 = imageFilePath0;
+            vc.imageFilePath1 = imageFilePath1;
+            vc.updateImage();
+            vc.zoomToFit(sender: nil);
+            imageWindowController?.showWindow(self);
+        }
+        else {
+            print("Unsupport image count > 2");
+        }
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -56,6 +90,7 @@ class ViewController: NSViewController {
         let initialFolderUrl = NSURL.fileURL(withPath: "/Users/chenmingjin/Downloads", isDirectory: true);
         imageDirectoryLoader.loadDataForFolderWithUrl(folderURL: initialFolderUrl as NSURL);
         configureCollectionView();
+        
     }
 
     override var representedObject: Any? {
@@ -64,6 +99,7 @@ class ViewController: NSViewController {
         }
     }
 
+    // 只有在点击下方的按钮才会调用到这里，如果是点击toolbar的按钮，不会调用这里
     override func prepare(for segue: NSStoryboardSegue, sender: Any?)
     {
         if segue.destinationController is ImageWindowController
