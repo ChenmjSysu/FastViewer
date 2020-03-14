@@ -344,6 +344,20 @@ class TwoImagesViewController: NSViewController {
         image1.image = NSImage.init(byReferencing: url1);
     }
     
+    func clickConverImage() {
+        let url0 = URL.init(string: imageFilePath1)!;
+        let url1 = URL.init(string: imageFilePath1)!;
+        image0.image = NSImage.init(byReferencing: url0);
+        image1.image = NSImage.init(byReferencing: url1);
+    }
+    
+    func releaseConverImage() {
+        let url0 = URL.init(string: imageFilePath0)!;
+        let url1 = URL.init(string: imageFilePath1)!;
+        image0.image = NSImage.init(byReferencing: url0);
+        image1.image = NSImage.init(byReferencing: url1);
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do view setup here.

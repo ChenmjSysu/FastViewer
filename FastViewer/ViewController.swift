@@ -24,8 +24,11 @@ class ViewController: NSViewController {
     @IBAction func EnterPathTextField(_ sender: Any) {
         let path = pathTextField.stringValue;
         let helper: ImageFile = ImageFile();
-        if (helper.isFolder(url: NSURL.init(string: "file://" + path)!)) {
-            loadDataForNewFolderWithUrl(folderURL: NSURL.init(string: "file://" + path)!);
+        let formatString = "file://" + path;
+        let encodeString = formatString.addingPercentEncoding(withAllowedCharacters: NSCharacterSet.urlQueryAllowed)
+        let url = NSURL.init(string: encodeString!); // nil when 中文
+        if (helper.isFolder(url: url!)) {
+            loadDataForNewFolderWithUrl(folderURL: NSURL.init(string: encodeString!)!);
 //            let initialFolderUrl = NSURL.fileURL(withPath: path, isDirectory: true);
 //            imageDirectoryLoader.loadDataForFolderWithUrl(folderURL: initialFolderUrl as NSURL);
         }
@@ -76,7 +79,7 @@ class ViewController: NSViewController {
             vc.imageFilePath1 = imageFilePath1;
             vc.updateImage();
             vc.zoomToFit(sender: nil);
-            imageWindowController?.showWindow(self);
+            twoImageWindowController?.showWindow(self);
         }
         else {
             print("Unsupport image count > 2");
@@ -85,9 +88,16 @@ class ViewController: NSViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        var currentFolder:String = "";
+        if #available(OSX 10.12, *) {
+            currentFolder = FileManager.default.currentDirectoryPath
+        } else {
+            // Fallback on earlier versions
+            currentFolder = "/"
+        };
+        
         // Do any additional setup after loading the view.
-        let initialFolderUrl = NSURL.fileURL(withPath: "/Users/chenmingjin/Downloads", isDirectory: true);
+        let initialFolderUrl = NSURL.fileURL(withPath: currentFolder, isDirectory: true);
         imageDirectoryLoader.loadDataForFolderWithUrl(folderURL: initialFolderUrl as NSURL);
         configureCollectionView();
         

@@ -11,10 +11,14 @@ import Cocoa
 class ClickReleaseButton: NSButton {
     
     override func mouseDown(with event: NSEvent) {
+        let vc = self.window?.windowController?.contentViewController as! TwoImagesViewController;
+        vc.clickConverImage();
         NSLog("Mouse Down");
     }
     
     override func mouseUp(with event: NSEvent) {
+        let vc = self.window?.windowController?.contentViewController as! TwoImagesViewController;
+        vc.releaseConverImage();
         NSLog("Mouse Up");
     }
 
