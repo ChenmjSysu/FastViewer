@@ -13,13 +13,19 @@ class ViewController: NSViewController {
     var imageFilePath0 = "";
     var imageFilePath1 = "";
     
+    @IBOutlet weak var metaTextField: NSTextField!
     var twoImageWindowController: TwoImagesWindowController?
     var imageWindowController: ImageWindowController?
     
     @IBOutlet weak var pathTextField: NSTextField!
     @IBOutlet weak var collectionView: NSCollectionView!
+    
     let imageDirectoryLoader = ImageDirectoryLoader()
     var lastClickTime:  CFAbsoluteTime = CFAbsoluteTimeGetCurrent();
+    
+    func clearMetaTextField() {
+        metaTextField.stringValue = "请选择文件";
+    }
     
     @IBAction func EnterPathTextField(_ sender: Any) {
         let path = pathTextField.stringValue;
@@ -39,7 +45,17 @@ class ViewController: NSViewController {
     override func mouseDown(with event: NSEvent) {
         print("click view")
     }
-
+    
+    func showMsgbox(_message: String, _info: String) -> Bool {
+        let myPopup: NSAlert = NSAlert()
+        myPopup.messageText = _message
+        myPopup.informativeText = _info
+        myPopup.alertStyle = NSAlert.Style.warning
+        myPopup.addButton(withTitle: "知道了")
+//        myPopup.addButton(withTitle: "取消")
+        return myPopup.runModal() == NSApplication.ModalResponse.alertFirstButtonReturn
+    }
+    
     private func configureCollectionView() {
         // 1 create layout
         let flowLayout = NSCollectionViewFlowLayout();
@@ -61,6 +77,9 @@ class ViewController: NSViewController {
         
         if (index.count == 0) {
             print("No selection")
+            let meesage = "错误"
+            let info = "请选择图片文件"
+            showMsgbox(_message: meesage, _info: info);
         }
         else if (index.count == 1) {
             let storyboard = NSStoryboard.init(name: "Main", bundle: nil);
@@ -83,6 +102,9 @@ class ViewController: NSViewController {
         }
         else {
             print("Unsupport image count > 2");
+            let meesage = "错误"
+            let info = "目前最多支持同时选择2个图片文件"
+            showMsgbox(_message: meesage, _info: info);
         }
     }
     
@@ -146,6 +168,7 @@ class ViewController: NSViewController {
         // set path editfile;
         let urlString: String = folderURL.relativePath!
         pathTextField.stringValue = urlString;
+        clearMetaTextField();
     }
 }
 
@@ -240,6 +263,7 @@ extension ViewController : NSCollectionViewDelegate {
             return
         }
         (item as! CollectionViewItem).setHighlight(selected: true)
+        metaTextField.stringValue = (item as! CollectionViewItem).imageFile!.description;
 //        print((item as! CollectionViewItem).imageFile?.fullPath);
     }
 
@@ -260,9 +284,7 @@ extension ViewController : NSCollectionViewDelegate {
             }
             (item as! CollectionViewItem).setHighlight(selected: false)
         }
-//        guard let indexPath = indexPaths.first else {
-//            return
-//        }
+        clearMetaTextField();
             
     }
     

@@ -8,14 +8,58 @@
 
 import Cocoa
 
+func getFileDescription(filepath: String) -> String {
+    
+    var desc: String = "";
+    let filename = NSURL(fileURLWithPath: filepath).lastPathComponent;
+    desc = filename! + "\n";
+    
+    let tmp = ImageFile();
+    let url = NSURL.init(string: "file://" + filepath)!
+    if (tmp.isImageFile(url: url)) {
+        let image = NSImage.init(contentsOf: url as URL);
+        let width = Int((image?.size.width)!)
+        let height = Int((image?.size.height)!)
+        desc += "宽: " + String(width) + " 高:" + String(height) + "\n";
+    }
+    
+    do {
+        let fileAttributes = try FileManager.default.attributesOfItem(atPath: filepath)
+        if let fileSize:NSNumber = fileAttributes[FileAttributeKey.size] as! NSNumber? {
+            print("File Size: \(fileSize.uint32Value)")
+            desc += "大小: " + String(fileSize.uint32Value) + " B";
+        }
+        
+        if let ownerName = fileAttributes[FileAttributeKey.ownerAccountName] {
+            print("File Owner: \(ownerName)")
+            desc += "\n所有者: " + String(ownerName as! String);
+        }
+     
+        if let creationDate = fileAttributes[FileAttributeKey.creationDate] {
+            print("File Creation Date: \(creationDate)")
+            desc += "\n" + String("创建时间: \(creationDate)")
+        }
+        
+        if let modificationDate = fileAttributes[FileAttributeKey.modificationDate] {
+            print("File Modification Date: \(modificationDate)")
+            desc += "\n" + String("修改时间: \(modificationDate)")
+        }
+        
+    } catch let error as NSError {
+        print("Get attributes errer: \(error)")
+    }
+    return desc;
+}
+
 class ImageFile {
 
     private(set) var thumbnail: NSImage?
     private(set) var fileName: String
     private(set) var fullPath: String
+    private(set) var description: String
     
     @IBAction func doubleClickedItem(_ sender: NSOutlineView) {
-        print("double click");
+        print("ImageFile double click");
     }
     
     func isImageFile(url: NSURL) -> Bool {
@@ -50,8 +94,11 @@ class ImageFile {
     init() {
         fileName = "";
         fullPath = "";
+        description = "";
         thumbnail = nil;
     }
+    
+
     
     init (url: NSURL) {
         if let name = url.lastPathComponent {
@@ -60,6 +107,7 @@ class ImageFile {
             fileName = ""
         }
         fullPath = url.absoluteString!;
+        description = getFileDescription(filepath: url.path!);
         if (isImageFile(url: url)) {
             let imageSource = CGImageSourceCreateWithURL(url.absoluteURL as! CFURL, nil)
             if let imageSource = imageSource {
@@ -70,7 +118,6 @@ class ImageFile {
         else if (isFolder(url: url)) {
             thumbnail = NSImage(named: NSImage.Name("folder_icon"));
         }
-        
     }
     
     private func getThumbnailImage(imageSource: CGImageSource) -> NSImage? {

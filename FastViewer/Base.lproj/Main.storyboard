@@ -1309,6 +1309,7 @@
                     </view>
                     <connections>
                         <outlet property="collectionView" destination="sZw-Io-e5A" id="1fz-b8-enh"/>
+                        <outlet property="metaTextField" destination="iXQ-I6-29Q" id="gdM-YZ-Btd"/>
                         <outlet property="pathTextField" destination="SBI-2G-3ue" id="siK-Gd-lcC"/>
                     </connections>
                 </viewController>
